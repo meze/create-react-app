@@ -61,8 +61,8 @@ if (module.hot && typeof module.hot.dispose === 'function') {
 var connection = new SockJS(
   url.format({
     protocol: window.location.protocol,
-    hostname: window.location.hostname,
-    port: window.location.port,
+    hostname: process.env.HOST || window.location.hostname,
+    port: process.env.PORT || window.location.port,
     // Hardcoded in WebpackDevServer
     pathname: '/sockjs-node',
   })
